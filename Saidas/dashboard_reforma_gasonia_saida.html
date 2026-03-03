@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Dashboard Reforma Tributária – GASÔNIA (Saídas) v3</title>
+<style>
+:root{--bg0:#020617;--line:#1f2937;--txt:#e5e7eb;--muted:#94a3b8;--acc:#38bdf8}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:radial-gradient(circle at top left,#1b2a4a 0,var(--bg0) 40%,var(--bg0) 100%);color:var(--txt);padding:28px 12px 40px}
+.page{max-width:1560px;margin:0 auto}
+.badges{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;padding:6px 10px;border-radius:999px;background:linear-gradient(135deg,rgba(56,189,248,.18),rgba(37,99,235,.16));color:var(--acc);border:1px solid rgba(56,189,248,.4)}
+.badge .dot{width:8px;height:8px;border-radius:99px;background:var(--acc);box-shadow:0 0 0 5px rgba(56,189,248,.3)}
+h1{margin:0 0 6px;font-size:26px;letter-spacing:-.02em}
+.sub{margin:0;color:var(--muted);font-size:14px;max-width:1080px}
+.kpis{margin-top:14px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+@media(max-width:1100px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi{border-radius:16px;border:1px solid var(--line);background:radial-gradient(circle at top left,rgba(56,189,248,.08),var(--bg0) 60%);padding:12px 14px;box-shadow:0 16px 36px rgba(15,23,42,.75)}
+.kpi .l{font-size:11px;color:var(--muted)}
+.kpi .v{font-size:18px;margin-top:4px}
+.kpi .h{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.35}
+.note{margin-top:12px;padding:10px 12px;border-radius:12px;background:rgba(56,189,248,.06);border:1px dashed rgba(56,189,248,.35);color:#cbd5e1;font-size:12px;line-height:1.55}
+.grid{margin-top:16px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.1fr);gap:16px}
+@media(max-width:1024px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{border-radius:18px;border:1px solid var(--line);background:radial-gradient(circle at top left,rgba(56,189,248,.06),var(--bg0) 55%);padding:14px 14px 16px;box-shadow:0 18px 40px rgba(15,23,42,.8)}
+.hd{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.hd h2{margin:0;font-size:15px}
+.hd p{margin:2px 0 0;color:var(--muted);font-size:12px}
+.pill{font-size:11px;padding:4px 9px;border-radius:999px;border:1px solid rgba(148,163,184,.6);background:rgba(15,23,42,.9);white-space:nowrap}
+.body{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:18px;align-items:stretch}
+@media(max-width:820px){.body{grid-template-columns:minmax(0,1fr)}}
+.figure{background:var(--bg0);border:1px solid rgba(15,23,42,.9);border-radius:12px;overflow:hidden;min-height:280px;display:flex;align-items:center;justify-content:center}
+.figure img{width:100%;height:auto;display:block}
+.side h3{margin:0 0 6px;color:var(--acc);font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+.side p,.side li{margin:0 0 6px;color:var(--muted);font-size:12px;line-height:1.55}
+.side ul{margin:0;padding-left:16px}
+table{width:100%;border-collapse:collapse;font-size:12px;color:var(--muted);border:1px solid rgba(31,41,55,.8);border-radius:10px;overflow:hidden;background:rgba(2,6,23,.7)}
+th,td{padding:8px 10px;border-bottom:1px solid rgba(31,41,55,.7);text-align:left;vertical-align:top}
+th{color:#cbd5e1;font-weight:600}
+footer{margin-top:20px;color:#6b7280;font-size:11px;text-align:right}
+</style></head>
+<body><div class="page">
+<header>
+  <div class="badges">
+    <div class="badge"><span class="dot"></span><span>GASÔNIA · Reforma Tributária (IBS/CBS) · Saídas</span></div>
+    <div style="font-size:11px;color:var(--muted)">EFD ICMS/IPI · Base: Cruzamentodedados_Gasônia.xlsx · Período 01/07/2025 a 30/09/2025 · Itens (saídas): 177</div>
+  </div>
+  <h1>Dashboard Executivo – Saídas da GASÔNIA (C170) com simulações IBS/CBS</h1>
+  <p class="sub">Versão expandida (v3) com mais gráficos e leituras: evolução mensal, mix de tributos, top clientes, CST, heatmap CFOP×NCM, dispersões e indicadores de anomalia/qualidade.</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="l">Receita (VL_ITEM · saídas)</div><div class="v">R$ 24.118.937,50</div><div class="h">Filtro: IND_OPER=1</div></div>
+    <div class="kpi"><div class="l">Carga atual informada</div><div class="v">R$ 4.837.025,90</div><div class="h">Efetiva média: 20,1%</div></div>
+    <div class="kpi"><div class="l">IBS/CBS simulado (26%)</div><div class="v">R$ 6.270.923,75</div><div class="h">Δ: R$ 1.433.897,85 (5,9% da receita)</div></div>
+    <div class="kpi"><div class="l">Qualidade de dados</div><div class="v">100,0% OK (NCM)</div><div class="h">% sem CFOP 0.0% · % sem UF 0.0%</div></div>
+    <div class="kpi"><div class="l">Anomalias (sinal)</div><div class="v">50 itens</div><div class="h">VL_ITEM&gt;0 e carga=0 (candidatos a revisão)</div></div>
+  </div>
+
+  <div class="note"><b>Importante:</b> IBS/CBS aqui é <b>bruto</b> sobre saídas; impacto econômico real depende de créditos das entradas, regimes específicos e repasse. Veja premissas e trilha no final.</div>
+</header>
+
+<main class="grid">
+
+<section class="card">
+  <div class="hd"><div><h2>1) Carga atual x cenários IBS/CBS (24% / 26% / 28%)</h2><p>Consolidado das saídas (VL_ITEM) vs carga informada no item.</p></div><div class="pill">Consolidado</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/01_carga_total.png" alt="Carga atual x cenários IBS/CBS (24% / 26% / 28%)"/></div>
+    <div class="side"><h3>Leitura</h3><p>Gap bruto para mapear hotspots e iniciar simulação líquida.</p></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>2) Top CFOP por receita – carga atual x IBS 26%</h2><p>Escopo mínimo do backlog de adequação.</p></div><div class="pill">Top CFOP</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/02_top_cfop.png" alt="Top CFOP por receita – carga atual x IBS 26%"/></div>
+    <div class="side"><h3>Tabela</h3><table><tr><th>CFOP</th><th>Receita</th><th>Carga atual</th><th>IBS 26%</th><th>Δ 26%</th></tr><tr><td>5101</td><td>R$ 23.776.327,00</td><td>R$ 4.755.265,40</td><td>R$ 6.181.845,02</td><td>R$ 1.426.579,62</td></tr><tr><td>5102</td><td>R$ 342.610,50</td><td>R$ 81.760,50</td><td>R$ 89.078,73</td><td>R$ 7.318,23</td></tr></table></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>3) Receita por UF de destino (Top 10)</h2><p>Destino para precificação e contratos.</p></div><div class="pill">UF</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/03_uf_top10.png" alt="Receita por UF de destino (Top 10)"/></div>
+    <div class="side"><h3>Tabela</h3><table><tr><th>UF</th><th>Receita</th><th>Δ 26%</th></tr><tr><td>Amazonas</td><td>R$ 24.118.937,50</td><td>R$ 1.433.897,85</td></tr></table></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>4) Sensibilidade IBS/CBS (24/26/28)</h2><p>Bandas para stress test.</p></div><div class="pill">Cenários</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/04_sensibilidade.png" alt="Sensibilidade IBS/CBS (24/26/28)"/></div>
+    <div class="side"><h3>Uso</h3><ul><li>24% e 28% como limites</li><li>26% como referência</li></ul></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>5) Heatmap CFOP x UF – hotspots de Δ (26% − carga atual)</h2><p>Top 12×12 por receita.</p></div><div class="pill">Hotspots</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/05_heatmap_cfop_uf.png" alt="Heatmap CFOP x UF – hotspots de Δ (26% − carga atual)"/></div>
+    <div class="side"><h3>Ação</h3><p>Transforme células quentes em cards: revisar regra, preço e contrato por praça.</p></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>6) Evolução mensal – receita x carga atual x IBS 26%</h2><p>Sazonalidade e exposição.</p></div><div class="pill">Time series</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/08_trend_mensal.png" alt="Evolução mensal – receita x carga atual x IBS 26%"/></div>
+    <div class="side"><h3>Leitura</h3><p>Meses pico devem ser foco de testes e governança de dados.</p></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>7) Mix de tributos atuais (ICMS/PIS/COFINS) – por mês</h2><p>Composição da carga atual.</p></div><div class="pill">Mix</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/09_mix_impostos_mes.png" alt="Mix de tributos atuais (ICMS/PIS/COFINS) – por mês"/></div>
+    <div class="side"><h3>Sinal</h3><p>Variações fortes podem indicar mudança de regime/benefício/parametrização.</p></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>8) Distribuição da alíquota efetiva atual</h2><p>Dispersão e mistura de tratamentos.</p></div><div class="pill">Hist</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/06_hist_aliq.png" alt="Distribuição da alíquota efetiva atual"/></div>
+    <div class="side"><h3>Leitura</h3><p>Muitos itens ~0% sugerem ST/monofásico/diferimento ou evidência fora do item.</p></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>9) Dispersão – tamanho do item x alíquota efetiva</h2><p>Identifica itens grandes fora da curva.</p></div><div class="pill">Outliers</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/13_scatter_item_aliq.png" alt="Dispersão – tamanho do item x alíquota efetiva"/></div>
+    <div class="side"><h3>Como usar</h3><ul><li>VL_ITEM alto e efetiva baixa → revisar regra</li><li>Efetiva muito alta → validar base/cálculo</li></ul></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>10) Boxplot – alíquota efetiva por CFOP (Top 8)</h2><p>Variabilidade dentro do CFOP.</p></div><div class="pill">Box</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/14_boxplot_cfop_aliq.png" alt="Boxplot – alíquota efetiva por CFOP (Top 8)"/></div>
+    <div class="side"><h3>Sinal</h3><p>Caixas largas sugerem mistura de NCM/regime/parametrização.</p></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>11) Top destinatários (proxy por documento) – receita</h2><p>Foco comercial e cláusulas de repasse.</p></div><div class="pill">Clientes</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/10_top_clientes.png" alt="Top destinatários (proxy por documento) – receita"/></div>
+    <div class="side"><h3>Tabela</h3><table><tr><th>Destinatário (doc)</th><th>Receita</th><th>Carga atual</th></tr><tr><td>4563672000166</td><td>R$ 23.885.902,00</td><td>R$ 4.834.924,40</td></tr><tr><td>2896727000124</td><td>R$ 222.528,00</td><td>R$ 0,00</td></tr><tr><td>84464346000130</td><td>R$ 10.507,50</td><td>R$ 2.101,50</td></tr></table></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>12) Distribuição de CST_ICMS (Top 12)</h2><p>Mapa de tratamento ICMS informado.</p></div><div class="pill">CST</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/11_cst_icms_dist.png" alt="Distribuição de CST_ICMS (Top 12)"/></div>
+    <div class="side"><h3>Uso</h3><p>Concilie CST/CFOP/NCM e desenhe mapeamento para IBS/CBS.</p></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>13) Heatmap CFOP x NCM – concentração de receita</h2><p>Top 10×10 por receita.</p></div><div class="pill">Mix</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/12_heatmap_cfop_ncm.png" alt="Heatmap CFOP x NCM – concentração de receita"/></div>
+    <div class="side"><h3>Tabela NCM</h3><table><tr><th>NCM</th><th>Receita</th><th>Δ 26%</th></tr><tr><td>73110000</td><td>R$ 23.776.327,00</td><td>R$ 1.426.579,62</td></tr><tr><td>72044100</td><td>R$ 222.528,00</td><td>R$ 57.857,28</td></tr><tr><td>84814000</td><td>R$ 93.535,00</td><td>R$ 5.612,10</td></tr><tr><td>84799090</td><td>R$ 16.040,00</td><td>R$ -56.781,60</td></tr><tr><td>72082690</td><td>R$ 10.507,50</td><td>R$ 630,45</td></tr></table></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>14) Simulação líquida simplificada (crédito 0/50/80%)</h2><p>Envelope conceitual de dependência de crédito.</p></div><div class="pill">Crédito</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/15_credit_sensitivity.png" alt="Simulação líquida simplificada (crédito 0/50/80%)"/></div>
+    <div class="side"><h3>Leitura</h3><p>Não é apuração oficial — serve para discussão de capital de giro e risco de crédito acumulado.</p></div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>15) Itens com carga zero – Top CFOP</h2><p>Onde o “salto” pode ser mais sensível.</p></div><div class="pill">Anomalias</div></div>
+  <div class="body">
+    <div class="figure"><img src="dashboard_gasonia_assets/16_zero_tax_cfop.png" alt="Itens com carga zero – Top CFOP"/></div>
+    <div class="side"><h3>Top efetivas (itens)</h3><table><tr><th>CFOP</th><th>NCM</th><th>VL_ITEM</th><th>Carga atual</th><th>Alíquota efetiva</th></tr><tr><td>5102</td><td>84799090</td><td>R$ 29,00</td><td>R$ 3.208,00</td><td>11062,1%</td></tr><tr><td>5102</td><td>84799090</td><td>R$ 34,00</td><td>R$ 3.208,00</td><td>9435,3%</td></tr><tr><td>5102</td><td>84799090</td><td>R$ 60,00</td><td>R$ 3.208,00</td><td>5346,7%</td></tr><tr><td>5102</td><td>84799090</td><td>R$ 243,50</td><td>R$ 3.208,00</td><td>1317,5%</td></tr><tr><td>5102</td><td>84799090</td><td>R$ 350,00</td><td>R$ 3.208,00</td><td>916,6%</td></tr><tr><td>5102</td><td>84799090</td><td>R$ 550,00</td><td>R$ 3.208,00</td><td>583,3%</td></tr><tr><td>5102</td><td>84799090</td><td>R$ 560,00</td><td>R$ 3.208,00</td><td>572,9%</td></tr><tr><td>5102</td><td>84799090</td><td>R$ 600,00</td><td>R$ 3.208,00</td><td>534,7%</td></tr><tr><td>5102</td><td>84799090</td><td>R$ 617,00</td><td>R$ 3.208,00</td><td>519,9%</td></tr><tr><td>5102</td><td>84799090</td><td>R$ 650,00</td><td>R$ 3.208,00</td><td>493,5%</td></tr></table></div>
+  </div>
+</section>
+
+
+<section class="card">
+  <div class="hd"><div><h2>Trilha recomendada</h2><p>Plano orientado por materialidade.</p></div><div class="pill">Plano</div></div>
+  <div class="body"><div class="side" style="grid-column:1/-1">
+    <ul>
+      <li><b>1) Simulação líquida completa:</b> entradas x saídas, crédito acumulado e capital de giro.</li>
+      <li><b>2) Backlog por materialidade:</b> Top CFOP + Top UF + Top NCM + Top clientes.</li>
+      <li><b>3) Parametrização e governança:</b> NCM/CFOP/CST; validação por família/UF.</li>
+      <li><b>4) Precificação/contratos:</b> cláusulas de repasse e matriz por praça/canal.</li>
+      <li><b>5) Monitoramento:</b> rotina mensal e acompanhamento normativo.</li>
+    </ul>
+  </div></div>
+</section>
+
+<section class="card">
+  <div class="hd"><div><h2>Premissas utilizadas</h2><p>Critérios e simplificações.</p></div><div class="pill">Premissas</div></div>
+  <div class="body"><div class="side" style="grid-column:1/-1">
+    <ul>
+      <li><b>Receita:</b> soma de VL_ITEM (saídas).</li>
+      <li><b>Carga atual:</b> VL_ICMS + VL_PIS + VL_COFINS no C170.</li>
+      <li><b>IBS/CBS:</b> alíquota uniforme sobre receita (24/26/28).</li>
+      <li><b>Δ:</b> IBS (cenário) − carga atual documental.</li>
+      <li><b>Heatmaps:</b> recortes Top N para legibilidade.</li>
+      <li><b>Simulação líquida simplificada:</b> envelope conceitual (não substitui apuração real).</li>
+      <li><b>Limitações:</b> não incorpora regras setoriais completas e créditos reais das entradas.</li>
+    </ul>
+    <div class="note"><b>Qualidade:</b> % sem NCM 0.0% · % sem CFOP 0.0% · % sem UF 0.0% · % sem CST_ICMS 0.0% · % VL_ITEM=0 0.0%</div>
+  </div></div>
+</section>
+
+</main>
+<footer>GASÔNIA · Dashboard Reforma Tributária (saídas) · v3 · imagens externas (robusto)</footer>
+</div></body></html>
